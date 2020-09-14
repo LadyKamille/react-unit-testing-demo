@@ -1,8 +1,9 @@
 import React from "react";
-import { Checkbox, List } from "antd";
+import { Button, Checkbox, List } from "antd";
+import { CloseCircleOutlined } from "@ant-design/icons";
 import styles from "./TodoList.module.css";
 
-const TodoList = ({ todos, toggleTodo }) => {
+const TodoList = ({ todos, toggleTodo, removeTodo }) => {
   return (
     <List
       bordered
@@ -17,6 +18,14 @@ const TodoList = ({ todos, toggleTodo }) => {
           >
             {todo.text}
           </Checkbox>
+          <Button
+            type="link"
+            icon={<CloseCircleOutlined />}
+            onClick={() => removeTodo(todo.id)}
+            title="Remove"
+            shape="circle"
+            danger
+          />
         </List.Item>
       )}
     />
