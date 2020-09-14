@@ -1,18 +1,21 @@
 import React from "react";
-import { Checkbox, List, Tag } from "antd";
+import { Checkbox, List } from "antd";
+import styles from "./TodoList.module.css";
 
-const TodoList = ({ todos, toggleTodo, removeTodo }) => {
+const TodoList = ({ todos, toggleTodo }) => {
   return (
     <List
       bordered
       dataSource={todos}
       renderItem={(todo) => (
-        <List.Item className="r">
+        <List.Item
+          className={todo.completed ? styles.completed : styles.active}
+        >
           <Checkbox
             onChange={() => toggleTodo(todo.id)}
             name={`todo-${todo.id}`}
           >
-            <Tag color={todo.completed ? "success" : "error"}>{todo.text}</Tag>
+            {todo.text}
           </Checkbox>
         </List.Item>
       )}

@@ -1,0 +1,8 @@
+.active {
+  background-color: #fff2e8;
+}
+
+.completed {
+  background-color: #f6ffed;
+  text-decoration: line-through;
+}
